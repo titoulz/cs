@@ -7,9 +7,9 @@ MYSQLDUMP="C:/xampp/mysql/bin/mysqldump.exe"
 
 #On récupère dans le fichier param.txt les différents paramètres
 #On récupère le nom de la base de données
-DB_NAME=$(cat param.txt | grep "DB_NAME" | cut -d "=" -f 2)
+DB_NAME=$(cat paramBDD.txt | grep "DB_NAME" | cut -d "=" -f 2)
 #On récupère le nom de l'utilisateur
-DB_USER=$(cat param.txt | grep "DB_USER" | cut -d "=" -f 2)
+DB_USER=$(cat paramBDD.txt | grep "DB_USER" | cut -d "=" -f 2)
 #On récupère le nom du fichier de dump par rapport au chemin du projet actuel
 DUMP_FILE="./sql/$DB_NAME.sql"
 
