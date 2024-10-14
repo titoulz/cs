@@ -7,7 +7,7 @@ class Vue_Menu_Administration extends Vue_Composant
     private string $typeDeVue="";
     public function __construct($typeDeVue )
     {
-        $this->typeDeVue=$typeDeVue;
+        $this->typeDeVue=$typeDeVue ;
     }
     function donneTexte(): string
     {
