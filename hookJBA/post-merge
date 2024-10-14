@@ -14,7 +14,7 @@ DB_USER=$(cat paramBDD.txt | grep "DB_USER" | cut -d "=" -f 2)
 DUMP_FILE="./sql/$DB_NAME.sql"
 
 # (Optionnel) Sauvegardez la base de données actuelle avant de restaurer
-"$MYSQLDUMP" -u $DB_USER $DB_NAME > "C:/Users/jba/PhpstormProjects/2023-CSCafe/sql/backup_$(date +%Y%m%d%H%M%S).sql"
+"$MYSQLDUMP" -u $DB_USER $DB_NAME > "./sql/backup_$(date +%Y%m%d%H%M%S).sql"
 
 # Restaurez la base de données à partir du dump
 "$MYSQL" -u $DB_USER $DB_NAME < $DUMP_FILE
