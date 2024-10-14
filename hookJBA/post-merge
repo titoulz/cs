@@ -5,10 +5,13 @@
 MYSQL="C:/xampp/mysql/bin/mysql.exe"
 MYSQLDUMP="C:/xampp/mysql/bin/mysqldump.exe"
 
-# Remplacez par les détails de votre base de données
-DB_NAME="cs_2023_cafe"
-DB_USER="root"
-DUMP_FILE="C:/Users/jba/PhpstormProjects/2023-CSCafe/sql/$DB_NAME.sql"
+#On récupère dans le fichier param.txt les différents paramètres
+#On récupère le nom de la base de données
+DB_NAME=$(cat param.txt | grep "DB_NAME" | cut -d "=" -f 2)
+#On récupère le nom de l'utilisateur
+DB_USER=$(cat param.txt | grep "DB_USER" | cut -d "=" -f 2)
+#On récupère le nom du fichier de dump par rapport au chemin du projet actuel
+DUMP_FILE="./sql/$DB_NAME.sql"
 
 # (Optionnel) Sauvegardez la base de données actuelle avant de restaurer
 "$MYSQLDUMP" -u $DB_USER $DB_NAME > "C:/Users/jba/PhpstormProjects/2023-CSCafe/sql/backup_$(date +%Y%m%d%H%M%S).sql"
