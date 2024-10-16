@@ -29,7 +29,7 @@ switch ($action) {
     case "mettreAJourUtilisateur":
 
         //Mettre à jour dans la liste des entreprises
-        Modele_Utilisateur::Utilisateur_Modifier($_REQUEST["idUtilisateur"], $_REQUEST["login"], $_REQUEST["niveauAutorisation"]);
+        Modele_Utilisateur::Utilisateur_Modifier($_REQUEST["idUtilisateur"], $_REQUEST["login"], $_REQUEST["codeCategorie"]);
         $Utilisateur = Modele_Utilisateur::Utilisateur_Select_ParId($_REQUEST["idUtilisateur"]);
 
         $listeUtilisateur = Modele_Utilisateur:: Utilisateur_Select_Cafe();
