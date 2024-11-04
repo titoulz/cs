@@ -229,7 +229,9 @@ SET aAccepteRGPD = :paramRGPD WHERE idUtilisateur = :paramidUtilisateur');
         $requetePreparee->bindParam('paramId', $idUtilisateur);
         $reponse = $requetePreparee->execute(); //$reponse boolean sur l'état de la requête
         $etudiant = $requetePreparee->fetch(PDO::FETCH_ASSOC);
-        return $etudiant;
+        if($etudiant != null)
+            return $etudiant['aAccepteRGPD'];
+        return null;
     }
 
 }
