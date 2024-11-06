@@ -4,6 +4,7 @@
 use App\Modele\Modele_Utilisateur;
 use App\Vue\Vue_Structure_BasDePage;
 use App\Vue\Vue_Structure_Entete;
+use App\Vue\Vue_Menu_Administration;
 
 $Vue->setEntete(new Vue_Structure_Entete());
 
@@ -12,7 +13,8 @@ $Vue->setEntete(new Vue_Structure_Entete());
 switch ($action) {
 
     case "AccepterRGPD" :
-        Modele_Utilisateur::Utilisateur_Modifier_RGPD($_REQUEST["idUtilisateur"],1);
+        $date = new DateTime();
+        Modele_Utilisateur::Utilisateur_Modifier_RGPD($_SESSION["idUtilisateur"],1,$date,$_SERVER['REMOTE_ADDR']);
 
         switch ($_SESSION["idCategorie_utilisateur"]) {
             case 1:
@@ -50,7 +52,6 @@ switch ($action) {
         break;
     case "AfficherRGPD" :
         default:
-
         $Vue->addToCorps(new \App\Vue\Vue_ConsentementRGPD());
         break;
 }

@@ -69,10 +69,10 @@ class Vue_ConsentementRGPD extends Vue_Composant
 ";
         $str .="
         <form method='POST' action='=?action=AccepterRGPD'>
-            <input type='hidden' name='idUtilisateur' value='RGPD'> 
+            <input type='hidden' name='case' value='RGPD'> 
             
-            <button type='submit' name='AccepterRGPD'>Accepter</button>            
-            <button type='submit' name='FalseRGPD'>Refuser</button>
+            <button type='submit' name='action' value='AccepterRGPD'>Accepter</button>            
+            <button type='submit' name='action' value='RefuserRGPD'>Refuser</button>
         </form>
         ";
         return $str;
